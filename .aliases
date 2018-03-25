@@ -1,0 +1,130 @@
+#
+# Compilations of useful shell aliases & functions
+# Made or found by Richard (Sylv3r) Kemp
+#
+
+# OVERRIDE COMMANDS
+
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias rm="rm -i"
+alias diff="diff -u"
+alias vi="vim"
+alias s="sudo -sE"
+
+
+# LS
+
+alias lsc="gls --color=auto"  # add colors for filetype recognition
+alias ll="lsc -l --group-directories-first"
+alias la="lsc -a"            # show hidden files
+alias lx="lsc -lXB"          # sort by extension
+alias lk="lsc -lSr"          # sort by size, biggest last
+alias lc="lsc -ltcr"         # sort by and show change time, most recent last
+alias lu="lsc -ltur"         # sort by and show access time, most recent last
+alias lt="lsc -ltr"          # sort by date, most recent last
+alias lm="lsc -al |more"     # pipe through 'more'
+alias lr="lsc -lR"           # recursive ls
+
+
+#GIT
+
+alias gs="git status"
+
+
+## SSH
+
+alias ssh='ssh -A'
+alias sshr='ssh -l root'
+alias sshrk='ssh -l rkemp'
+alias nevrast="ssh root@10.222.0.1"
+
+
+# FUNCTIONS
+
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.tar.xz)    tar xvJf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.zip)       unzip $1 -d ${1%%.*} ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *.xz)        unxz $1        ;;
+      *.exe)       cabextract $1  ;;
+      *)           echo "\`$1': unrecognized file compression" ;;
+    esac
+  else
+    echo "\`$1' is not a valid file"
+  fi
+}
+
+compress() {
+  if [[ -n "$1" ]]; then
+    case $1 in
+      *.tar ) shift && tar cf $1 $* ;;
+      *.tar.bz2 ) shift && tar cjf $1 $* ;;
+      *.tar.gz ) shift && tar czf $1 $* ;;
+      *.tgz ) shift && tar czf $1 $* ;;
+      *.zip ) shift && zip $1 $* ;;
+      *.rar ) shift && rar $1 $* ;;
+    esac
+  else
+    echo "usage: compress <foo.tar.gz> ./foo ./bar"
+  fi
+}
+
+calc() {
+  if which bc &>/dev/null; then
+    echo "scale=3; $*" | bc -l
+  else
+    awk "BEGIN { print $* }"
+  fi
+}
+
+if which systemctl &>/dev/null; then
+  start() {
+    sudo systemctl start $1.service
+  }
+  restart() {
+    sudo systemctl restart $1.service
+  }
+  stop() {
+    sudo systemctl stop $1.service
+  }
+  enable() {
+    sudo systemctl enable $1.service
+  }
+  status() {
+    sudo systemctl status $1.service
+  }
+  disable() {
+    sudo systemctl disable $1.service
+  }
+fi
+
+set_env() {
+  export $(cat .env | grep -v -e '^#' -e '^$' | xargs)
+}
+
+
+# DOCKER
+
+alias up='docker-compose up'
+alias build='docker-compose build'
+alias dcrun='docker-compose run --rm app'
+alias enter='docker-compose run --rm app bash'
+alias conn='docker exec -it $(docker ps -f name="_app" --format "{{.ID}}") bash'
+

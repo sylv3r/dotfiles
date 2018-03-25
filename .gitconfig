@@ -1,0 +1,14 @@
+[user]
+  name = Richard KEMP
+  email = richard.kemp@pm.me
+[color]
+  ui = true
+[push]
+  default = simple
+[alias]
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[credential "https://github.com"]
+  username = sylv3r
