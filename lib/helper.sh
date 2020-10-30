@@ -1,11 +1,19 @@
+#!/bin/sh
 #
-# LightDM Session configuration
+# Shell helpers 
 # -----------------------------------------------------------------------------
 # Bundle: Sylver's dotfiles
 # Repository: https://github.com/sylver/dotfiles
 # Author: Richard (Sylver) Kemp
 # -----------------------------------------------------------------------------
 
-[Desktop]
-Language=en_US.utf8
-Session=i3
+case "$OSTYPE" in
+  solaris*) OS="solaris" ;;
+  darwin*) OS="macos" ;; 
+  linux*) OS="linux" ;;
+  bsd*) OS="bsd" ;;
+  msys*) OS="windows" ;;
+  *) OS= ;;
+esac
+
+export OS

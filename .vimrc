@@ -1,10 +1,14 @@
-"---------------------------------------------------------------
-" file:     ~/.vimrc                         
+" Opinionated vim configuration
+" -----------------------------------------------------------------------------
+" Bundle: Sylver's dotfiles
+" Repository: https://github.com/sylver/dotfiles
+" Author: Richard (Sylver) Kemp
+" -----------------------------------------------------------------------------
 " vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
-"---------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Starting pathogen
-call pathogen#infect()
+"call pathogen#infect()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -99,7 +103,7 @@ map ; :
 "set t_Co=256
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 hi Normal ctermbg=none  "no background
 hi LineNr ctermfg=lightmagenta ctermbg=magenta
 "hi Comment ctermfg=grey

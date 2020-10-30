@@ -1,52 +1,51 @@
-;-------------------------------------------------
-;                                                ;
-;           Polybar config for my themes         ;
-; 				                 ;
-;                                                ;
-;-------------------------------------------------
+;
+; polybar theme configuration
+; -----------------------------------------------------------------------------
+; Bundle: Sylver's dotfiles
+; Repository: https://github.com/sylver/dotfiles
+; Author: Richard (Sylver) Kemp
+; -----------------------------------------------------------------------------
 
 
 [colors]
+color15_i3wmthemer = ${xrdb:color15}
+color14_i3wmthemer = ${xrdb:color14}
+color13_i3wmthemer = ${xrdb:color13}
+color12_i3wmthemer = ${xrdb:color12}
+color11_i3wmthemer = ${xrdb:color11}
+color10_i3wmthemer = ${xrdb:color10}
+color09_i3wmthemer = ${xrdb:color9}
+color08_i3wmthemer = ${xrdb:color8}
+color07_i3wmthemer = ${xrdb:color7}
+color06_i3wmthemer = ${xrdb:color6}
+color05_i3wmthemer = ${xrdb:color5}
+color04_i3wmthemer = ${xrdb:color4}
+color03_i3wmthemer = ${xrdb:color3}
+color02_i3wmthemer = ${xrdb:color2}
+color01_i3wmthemer = ${xrdb:color1}
+color00_i3wmthemer = ${xrdb:color0}
+foreground_i3wmthemer = ${xrdb:foreground}
+background_i3wmthemer = ${xrdb:background}
 
-color15_i3wmthemer      = ${xrdb:color15}
-color14_i3wmthemer      = ${xrdb:color14}
-color13_i3wmthemer      = ${xrdb:color13}
-color12_i3wmthemer      = ${xrdb:color12}
-color11_i3wmthemer      = ${xrdb:color11}
-color10_i3wmthemer      = ${xrdb:color10}
-color09_i3wmthemer        = ${xrdb:color9}
-color08_i3wmthemer        = ${xrdb:color8}
-color07_i3wmthemer        = ${xrdb:color7}
-color06_i3wmthemer        = ${xrdb:color6}
-color05_i3wmthemer        = ${xrdb:color5}
-color04_i3wmthemer        = ${xrdb:color4}
-color03_i3wmthemer        = ${xrdb:color3}
-color02_i3wmthemer        = ${xrdb:color2}
-color01_i3wmthemer      = ${xrdb:color1}
-color00_i3wmthemer        = ${xrdb:color0}
-foreground_i3wmthemer   = ${xrdb:foreground}
-background_i3wmthemer   = ${xrdb:background}
-
-
-;My colors are set from .Xresources to match everything else
-my_background 	= ${xrdb:background}
-my_foreground 	= ${xrdb:foreground}
-my_color0	= ${xrdb:color0}
-my_color1	= ${xrdb:color1}
-my_color2	= ${xrdb:color2}
-my_color3	= ${xrdb:color3}
-my_color4	= ${xrdb:color4}
-my_color5	= ${xrdb:color5}
-my_color6	= ${xrdb:color6}
-my_color7	= ${xrdb:color7}
-my_color8	= ${xrdb:color8}
-my_color9	= ${xrdb:color9}
-my_color10	= ${xrdb:color10}
-my_color11	= ${xrdb:color11}
-my_color12	= ${xrdb:color12}
-my_color13	= ${xrdb:color13}
-my_color14	= ${xrdb:color14}
-my_color15	= ${xrdb:color15}
+;Colors are set from .Xresources to match everything else
+my_background = ${xrdb:background}
+my_foreground = ${xrdb:foreground}
+my_color0 = ${xrdb:color0}
+my_color1 = ${xrdb:color1}
+my_color2 = ${xrdb:color2}
+my_color3 = ${xrdb:color3}
+my_color4 = ${xrdb:color4}
+my_color5 = ${xrdb:color5}
+my_color6 = ${xrdb:color6}
+my_color7 = ${xrdb:color7}
+my_color8 = ${xrdb:color8}
+my_color9 = ${xrdb:color9}
+my_color10 = ${xrdb:color10}
+my_color11 = ${xrdb:color11}
+my_color12 = ${xrdb:color12}
+my_color13 = ${xrdb:color13}
+my_color14 = ${xrdb:color14}
+my_color15 = ${xrdb:color15}
 
 [bar/main_bar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -66,7 +65,7 @@ dpi = ${xrdb:Xft.dpi:-1}
 
 background = ${colors.background_i3wmthemer}
 ;foreground = ${colors.my_foreground}
-foreground =  ${colors.foreground_i3wmthemer}
+foreground = ${colors.foreground_i3wmthemer}
 
 line-size = 3
 line-color = ${colors.color04_i3wmthemer}
@@ -85,7 +84,7 @@ font-1 = Hack:fontformat=truetype:size=8;1
 font-2 = FontAwesome:fontformat=truetype:size=8;1
 
 modules-left = i3 xwindow
-;modules-center = date 
+;modules-center = date
 ;modules-right = musicinfo battery
 modules-right = date battery
 

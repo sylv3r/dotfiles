@@ -1,4 +1,11 @@
-# Basic script to kill all old bars and launch new.
+#!/bin/sh
+#
+# Polybar launchs script - Basic script to kill all old bars and launch new.
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
 
 # Terminate already running bad instances
 killall -q polybar

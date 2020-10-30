@@ -1,0 +1,28 @@
+[user]
+  name = Richard KEMP
+  email = richard@kemp.pm
+  signingkey = 0x8332907D5E491251
+[color]
+  ui = true
+ [color "diff"]
+  old = red strike
+  new = green italic
+[commit]
+  gpgsign = true
+[push]
+  default = simple
+[pull]
+  rebase = true
+  ff = only
+[alias]
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[credential "https://github.com"]
+  username = sylver
+[credential "https://gitlab.com"]
+  username = sylv3r
+[credential "https://bitbucket.org"]
+  username = richardwkemp
+

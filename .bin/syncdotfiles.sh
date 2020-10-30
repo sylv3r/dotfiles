@@ -1,11 +1,10 @@
+#!/bin/sh
 #
-# LightDM Session configuration
+# syncing dotfiles
 # -----------------------------------------------------------------------------
 # Bundle: Sylver's dotfiles
 # Repository: https://github.com/sylver/dotfiles
 # Author: Richard (Sylver) Kemp
 # -----------------------------------------------------------------------------
 
-[Desktop]
-Language=en_US.utf8
-Session=i3
+find ~/.dotfiles -name '.*' -not -path '.' -exec ln -sf {} ~/ \;

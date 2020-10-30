@@ -1,40 +1,55 @@
+!
+! Various X resources configuration
+! -----------------------------------------------------------------------------
+! Bundle: Sylver's dotfiles
+! Repository: https://github.com/sylver/dotfiles
+! Author: Richard (Sylver) Kemp
+! -----------------------------------------------------------------------------
+
+! Xft settings
+!
 Xft.dpi: 240
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
 
-! COLOR PALETTE HERE !
-*.foreground:   #EAD49B
-*.background:   #1E272B
-*.cursorColor:  #EAD49B
-
-*.cursor:      #EAD49B
-*.color0:      #1E272B
-*.color1:      #685742
-*.color2:      #9D6A47
-*.color3:      #B36D43
-*.color4:      #78824B
-*.color5:      #D99F57
-*.color6:      #C9A554
-*.color7:      #EAD49B
-*.color9:      #685742
-*.color10:     #9D6A47
-*.color11:     #B36D43
-*.color12:     #78824B
-*.color13:     #D99F57
-*.color14:     #C9A554
-*.color15:     #EAD49B
-*.color8:      #666666
-
-*fading:                15
-*fadeColor:             black
-*pointerColorBackground:#2B2C2B
-*pointerColorForeground:#16A085
-
+! Xcursor
+!
 Xcursor.theme: Maia-Cursor
-Xcursor.size:  48
+Xcursor.size: 48
 
+! COLOR PALETTE
+!
+*.foreground: #EAD49B
+*.background: #1E272B
+*.cursorColor: #EAD49B
+
+*.cursor: #EAD49B
+*.color0: #1E272B
+*.color1: #685742
+*.color2: #9D6A47
+*.color3: #B36D43
+*.color4: #78824B
+*.color5: #D99F57
+*.color6: #C9A554
+*.color7: #EAD49B
+*.color9: #685742
+*.color10: #9D6A47
+*.color11: #B36D43
+*.color12: #78824B
+*.color13: #D99F57
+*.color14: #C9A554
+*.color15: #EAD49B
+*.color8: #666666
+
+*fading: 15
+*fadeColor: black
+*pointerColorBackground: #2B2C2B
+*pointerColorForeground: #16A085
+
+! Xterm settings
+!
 XTerm*background: #6aa7a5
 XTerm*foreground: #6aa7a5
 XTerm*reverseVideo: on
@@ -44,21 +59,22 @@ XTerm*renderFont: true
 XTerm*faceSize: 11
 XTerm*pointerColor: #16A085
 
-! URxvt SETUP HERE !
+! URxvt
+!
 URxvt.internalBorder: 6
 URxvt.font: xft:Hack:size=10
 URxvt.letterSpace: -1
 URxvt.depth: 32
-URxvt.background:	[100]#1E272B
-URxvt*scrollBar:                      false
-URxvt*mouseWheelScrollPage:           false
-URxvt*cursorBlink:                    true
-URxvt*foreground: 		                #EAD49B
-URxvt*cursorColor:		                #EAD49B
-URxvt*saveLines:                      5000
+URxvt.background: [100]#1E272B
+URxvt*scrollBar: false
+URxvt*mouseWheelScrollPage: false
+URxvt*cursorBlink: true
+URxvt*foreground: #EAD49B
+URxvt*cursorColor: #EAD49B
+URxvt*saveLines: 5000
 
-! ROFI SETUP HERE !
-
+! ROFI Configuration
+!
 ! Enable the extended coloring options
 !rofi.color-enabled: true
 !!                  bg       border   separator
@@ -96,4 +112,3 @@ rofi.eh: 2
 !rofi.separator-style: solid
 rofi.hide-scrollbar: true
 !rofi.show-icons: true
-

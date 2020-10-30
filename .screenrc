@@ -1,6 +1,9 @@
-#
-# Example of a user's .screenrc file
-#
+# screenrc configuration
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
 
 # This is how one can set a reattach password:
 # password ODSJQf.4IJN7E    # "1234"

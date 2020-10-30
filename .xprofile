@@ -1,1 +1,10 @@
-[ -f ~/.profile ] && source ~/.profile
+#!/bin/sh
+#
+# xprofile
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
+
+[ -f ~/.profile ] && . ~/.profile

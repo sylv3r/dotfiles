@@ -1,76 +1,110 @@
+#!/bin/sh
 #
 # Compilations of useful shell aliases & functions
-# Made or found by Richard (Sylv3r) Kemp
-#
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
 
 # OVERRIDE COMMANDS
-
-alias ls='ls --color=auto'
+#
+#alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
 alias rm="rm -i"
 alias diff="diff -u"
 alias vi="vim"
 alias s="sudo -sE"
 
-
 # LS
-
-alias lsc="gls --color=auto"  # add colors for filetype recognition
+#
+alias lsc="gls --color=auto" # add colors for filetype recognition
 alias ll="lsc -l --group-directories-first"
-alias la="lsc -a"            # show hidden files
-alias lx="lsc -lXB"          # sort by extension
-alias lk="lsc -lSr"          # sort by size, biggest last
-alias lc="lsc -ltcr"         # sort by and show change time, most recent last
-alias lu="lsc -ltur"         # sort by and show access time, most recent last
-alias lt="lsc -ltr"          # sort by date, most recent last
-alias lm="lsc -al |more"     # pipe through 'more'
-alias lr="lsc -lR"           # recursive ls
+alias la="lsc -a" # show hidden files
+alias lla="ll -a" # show hidden files list
+alias lx="lsc -lXB" # sort by extension
+alias lk="lsc -lSr" # sort by size, biggest last
+alias lc="lsc -ltcr" # sort by and show change time, most recent last
+alias lu="lsc -ltur" # sort by and show access time, most recent last
+alias lt="lsc -ltr" # sort by date, most recent last
+alias lm="lsc -al |more" # pipe through 'more'
+alias lr="lsc -lR" # recursive ls
 
-
-#GIT
-
+# GIT
+#
+alias ga="git add"
+alias gap="ga --partial"
+alias gA="ga ."
 alias gs="git status"
+alias gL="git log --abbrev-commit --graph --decorate"
+alias gl="gL --graph --pretty=format:'%C(auto)%h%C(reset) %C(bold magenta)%G?%C(reset) %C(blue)%<(15)%an%C(reset) %C(green)%<(14)%cr %C(auto)%d%C(reset) %s'"
+alias gc="git commit -S"
+alias gca="gc --amend --no-edit"
+alias gcA="gc --amend"
+alias gd="git diff"
+alias gdc="gd --cached"
+alias gb="git branch"
+alias gba="gb -a"
+alias gbd="gb -d"
+alias gbD="gb -D"
+alias gf="git fetch"
+alias gco="git checkout"
+alias gp="git push"
+alias gP="git pull --rebase"
+alias gr="git remote"
+alias grv="gr -v"
+alias gR="git reset --soft HEAD~1"
+alias gRH="git reset --hard HEAD"
 
-
-## SSH
-
+# SSH
+#
 alias ssh='ssh -A'
 alias sshr='ssh -l root'
-alias sshrk='ssh -l rkemp'
-alias nevrast="ssh root@10.222.0.1"
 
+# Docker
+#
+alias dc='docker-compose'
+alias dcu='dc up'
+alias dcb='dc build'
+alias dcr='dc run --rm app'
+alias dcs='dc run --rm app zsh || dc run --rm app bash || dc run --rm app sh'
+
+# Kubernetes
+#
+alias k='kubectl'
 
 # FUNCTIONS
-
+#
+# Universal extract command
 extract () {
   if [ -f $1 ] ; then
     case $1 in
-      *.tar.bz2)   tar xvjf $1    ;;
-      *.tar.gz)    tar xvzf $1    ;;
-      *.tar.xz)    tar xvJf $1    ;;
-      *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1      ;;
-      *.tar)       tar xvf $1     ;;
-      *.tbz2)      tar xvjf $1    ;;
-      *.tgz)       tar xvzf $1    ;;
-      *.zip)       unzip $1 -d ${1%%.*} ;;
-      *.Z)         uncompress $1  ;;
-      *.7z)        7z x $1        ;;
-      *.xz)        unxz $1        ;;
-      *.exe)       cabextract $1  ;;
-      *)           echo "\`$1': unrecognized file compression" ;;
+      *.tar.bz2) tar xvjf $1 ;;
+      *.tar.gz) tar xvzf $1 ;;
+      *.tar.xz) tar xvJf $1 ;;
+      *.bz2) bunzip2 $1 ;;
+      *.rar) unrar x $1 ;;
+      *.gz) gunzip $1 ;;
+      *.tar) tar xvf $1 ;;
+      *.tbz2) tar xvjf $1 ;;
+      *.tgz) tar xvzf $1 ;;
+      *.zip) unzip $1 -d ${1%%.*} ;;
+      *.Z) uncompress $1 ;;
+      *.7z) 7z x $1 ;;
+      *.xz) unxz $1 ;;
+      *.exe) cabextract $1 ;;
+      *) echo "\`$1': unrecognized file compression format" ;;
     esac
   else
     echo "\`$1' is not a valid file"
   fi
 }
 
+# Universal compress command
 compress() {
   if [[ -n "$1" ]]; then
     case $1 in
@@ -86,6 +120,7 @@ compress() {
   fi
 }
 
+# Universal calc command
 calc() {
   if which bc &>/dev/null; then
     echo "scale=3; $*" | bc -l
@@ -94,6 +129,7 @@ calc() {
   fi
 }
 
+# systemctl shorthand commands
 if which systemctl &>/dev/null; then
   start() {
     sudo systemctl start $1.service
@@ -115,16 +151,7 @@ if which systemctl &>/dev/null; then
   }
 fi
 
-set_env() {
+# easy loading of local .env file in folder/repository
+loadenv() {
   export $(cat .env | grep -v -e '^#' -e '^$' | xargs)
 }
-
-
-# DOCKER
-
-alias up='docker-compose up'
-alias build='docker-compose build'
-alias dcrun='docker-compose run --rm app'
-alias enter='docker-compose run --rm app bash'
-alias conn='docker exec -it $(docker ps -f name="_app" --format "{{.ID}}") bash'
-

@@ -1,10 +1,16 @@
+#!/bin/sh
+#
+# Profile configuration
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
+
 # aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+#
+[ -f ~/.aliases ] && . ~/.aliases
 
 # export
-if [ -f ~/.exports ]; then
-    . ~/.exports
-fi
-
+#
+[ -f ~/.exports ] && . ~/.exports
