@@ -56,7 +56,6 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_with_package_name"
 
 # Addons
 #
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(antibody init)
 antibody bundle < ~/.zshplugins
 

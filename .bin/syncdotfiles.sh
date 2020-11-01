@@ -7,4 +7,7 @@
 # Author: Richard (Sylver) Kemp
 # -----------------------------------------------------------------------------
 
-find ~/.dotfiles -name '.*' -not -path '.' -exec ln -sf {} ~/ \;
+find ~/.dotfiles -name '.*' \
+  -not -path '.' \
+  -not -path '.git' \
+  -exec ln -sf {} ~/ \;
