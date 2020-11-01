@@ -8,6 +8,6 @@
 # -----------------------------------------------------------------------------
 
 find ~/.dotfiles -name '.*' \
-  -not -path '.' \
-  -not -path '.git' \
+  -not -path '*.dotfiles' \
+  -not -path '*.git' \
   -exec ln -sf {} ~/ \;
