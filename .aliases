@@ -7,9 +7,10 @@
 # Author: Richard (Sylver) Kemp
 # -----------------------------------------------------------------------------
 
+source ~/.dotfiles/lib/helper.sh
+
 # OVERRIDE COMMANDS
 #
-#alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -22,7 +23,12 @@ alias s="sudo -sE"
 
 # LS
 #
-alias lsc="gls --color=auto" # add colors for filetype recognition
+# add colors for filetype recognition
+if [ $OS = 'macos' ]; then 
+  alias lsc="gls --color=auto"
+else
+  alias lsc="ls --color=auto"
+fi
 alias ll="lsc -l --group-directories-first"
 alias la="lsc -a" # show hidden files
 alias lla="ll -a" # show hidden files list
