@@ -57,17 +57,17 @@ export LS_COLORS="di=34:ln=36:so=93:pi=33:ex=31:bd=95:cd=35:su=90;41:sg=90;41:tw
 
 # LESS COLORS
 #
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
+export LESS_TERMCAP_me=$'\E[0m' # end mode
+export LESS_TERMCAP_se=$'\E[0m' # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # ANDROID
 #
-if [ $OS = 'macos' ]; then 
+if [ $OS = 'macos' ]; then
   export ANDROID_HOME=$HOME/Library/Android/sdk
   PATH=$PATH:$ANDROID_HOME/emulator
   PATH=$PATH:$ANDROID_HOME/tools
@@ -86,7 +86,7 @@ fi
 
 # LATEX
 #
-if [ $OS = 'macos' ]; then 
+if [ $OS = 'macos' ]; then
   export PATH=$PATH:/Library/TeX/texbin
 fi
 export TEXINPUTS=~/.texmf//:
@@ -96,6 +96,6 @@ export FONTS=~/Library/Fonts/
 
 # VSCode
 #
-if [ $OS = 'macos' ]; then 
+if [ $OS = 'macos' ]; then
   export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 fi
