@@ -19,6 +19,8 @@
 !.dmrc
 !.exports
 !.gitconfig
+!.gtkrc
+!.gtkrc-2.0
 !.profile
 !.psqlrc
 !.screenrc

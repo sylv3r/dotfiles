@@ -1,0 +1,29 @@
+#
+# GTK Configuration
+#
+# Using
+#  * arc-icon-theme
+#  * arc-gtk-theme
+# -----------------------------------------------------------------------------
+# Bundle: Sylver's dotfiles
+# Repository: https://github.com/sylver/dotfiles
+# Author: Richard (Sylver) Kemp
+# -----------------------------------------------------------------------------
+
+# GTK theme
+include "/usr/share/themes/Arc-Dark/gtk-2.0/gtkrc"
+
+# Font
+style "myfont" {
+  font_name = "Futura Bk Bt 12"
+}
+widget_class "*" style "myfont"
+gtk-font-name = "Futura Bk Bt 12"
+
+# Icon theme
+gtk-icon-theme-name = "Arc"
+#gtk-toolbar-icon-size = GTK_ICON_SIZE_DIALOG
+gtk-icon-sizes = panel-menu=128,128:panel=32,32:gtk-menu=32,32:gtk-large-toolbar=64,64:gtk-small-toolbar=48,48:gtk-button=128,128
+
+# Toolbar style
+gtk-toolbar-style = GTK_TOOLBAR_ICONS
