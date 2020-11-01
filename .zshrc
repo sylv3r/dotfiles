@@ -78,3 +78,6 @@ fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+which archey && archey
+which archey3 && archey3
